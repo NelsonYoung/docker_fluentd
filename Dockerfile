@@ -36,7 +36,7 @@ RUN ln -s /opt/mops/ruby/bin/* /usr/local/bin/
 RUN (mkdir /opt/mops/fluentd && cd /opt/mops/fluentd && fluentd --setup /opt/mops/fluentd/conf)
 
 # Run fluentd
-#RUN fluentd -c /opt/mops/fluentd/conf/fluent.conf
+# echo "fluentd -c /opt/mops/fluentd/conf/fluent.conf -d /opt/mops/fluentd/fluentd.pid -o /tmp/fluentd.log -p /opt/mops/fluentd/conf/plugin/" >> /root/.bashrc
 
 # Use supervisor to monitor fluentd
 RUN (cd /opt/mops/tmp && wget https://pypi.python.org/packages/source/s/setuptools/setuptools-19.1.1.tar.gz#md5=792297b8918afa9faf826cb5ec4a447a)
@@ -60,7 +60,8 @@ RUN echo "environment=PATH=\"/usr/bin\"" >> /etc/supervisord.conf
 RUN rm -rf /opt/mops/tmp
 
 # RUN supervisord -c /etc/supervisord.conf
-CMD ["/usr/bin/supervisord -c /etc/supervisord.conf"]
+RUN echo "/usr/bin/supervisord -c /etc/supervisord.conf" >> /root/.bashrc
+#CMD ["/usr/bin/supervisord -c /etc/supervisord.conf"]
 
 # expose ssh port, if need
 # EXPOSE 22
