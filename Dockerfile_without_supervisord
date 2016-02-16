@@ -36,4 +36,4 @@ RUN ln -s /opt/mops/ruby/bin/* /usr/local/bin/
 RUN (mkdir /opt/mops/fluentd && cd /opt/mops/fluentd && fluentd --setup /opt/mops/fluentd/conf)
 
 # Run fluentd
-echo "fluentd -c /opt/mops/fluentd/conf/fluent.conf -d /opt/mops/fluentd/fluentd.pid -o /tmp/fluentd.log -p /opt/mops/fluentd/conf/plugin/" >> /root/.bashrc
+RUN echo "fluentd -c /opt/mops/fluentd/conf/fluent.conf -d /opt/mops/fluentd/fluentd.pid -o /tmp/fluentd.log -p /opt/mops/fluentd/conf/plugin/" >> /root/.bashrc
