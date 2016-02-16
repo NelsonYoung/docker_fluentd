@@ -10,7 +10,7 @@ Step 1: Run the command below to build docker images.
 Step 2: Startup the docker
 > docker run -t -i mops/fluentd:v2 "/bin/bash"
 
-Step 3: Startup supervisor. 
+Step 3: Attach the running container and startup supervisor. 
 > supervisord -c /etc/supervisord.conf
 
 Step 4: Check the fluentd state.
