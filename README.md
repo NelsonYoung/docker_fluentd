@@ -1,5 +1,9 @@
 # docker_fluentd
 Usage
+
+Download the Dockerfile and fluentd_docker.tar.xz in the files folder.
+
+
 Step 1: Run the command below to build docker images.
 > docker build --tag="mops/fluentd:v2" --file=Dockerfile .
 
