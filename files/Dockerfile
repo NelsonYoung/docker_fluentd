@@ -55,7 +55,12 @@ RUN echo "stdout_logfile=/tmp/fluentd.log" >> /etc/supervisord.conf
 RUN echo "redirect_stderr=true" >> /etc/supervisord.conf
 RUN echo "environment=PATH=\"/opt/mops/ruby/bin\"" >> /etc/supervisord.conf
 RUN echo "environment=PATH=\"/usr/bin\"" >> /etc/supervisord.conf
-# RUN supervisord -c /etc/supervisord.conf
 
 # Remove tmp files
 RUN rm -rf /opt/mops/tmp
+
+# RUN supervisord -c /etc/supervisord.conf
+CMD ["/usr/bin/supervisord -c "]
+
+# expose ssh port
+EXPOSE 22
