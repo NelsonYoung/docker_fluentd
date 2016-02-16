@@ -1,4 +1,4 @@
-# docker_fluentd
+# Docker fluentd 
 Usage
 
 Download the Dockerfile and fluentd_docker.tar.xz.
