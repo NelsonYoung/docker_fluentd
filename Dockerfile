@@ -62,5 +62,5 @@ RUN rm -rf /opt/mops/tmp
 # RUN supervisord -c /etc/supervisord.conf
 CMD ["/usr/bin/supervisord -c "]
 
-# expose ssh port
-EXPOSE 22
+# expose ssh port, if need
+# EXPOSE 22
