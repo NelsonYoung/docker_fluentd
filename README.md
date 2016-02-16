@@ -22,4 +22,4 @@ Step 2: Startup the docker
 > docker run -t -i --name=test_fluent -d -P mops/fluentd:v2 "/bin/bash"
 
 Step 3: Attach the running container and check the fluentd state.
-> supervisorctl status
+> ps aux | grep fluentd
