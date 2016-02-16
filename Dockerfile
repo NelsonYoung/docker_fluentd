@@ -60,8 +60,8 @@ RUN echo "environment=PATH=\"/usr/bin\"" >> /etc/supervisord.conf
 RUN rm -rf /opt/mops/tmp
 
 # RUN supervisord -c /etc/supervisord.conf
-RUN echo "/usr/bin/supervisord -c /etc/supervisord.conf" >> /root/.bashrc
 #CMD ["/usr/bin/supervisord -c /etc/supervisord.conf"]
+RUN echo "/usr/bin/supervisord -c /etc/supervisord.conf" >> /root/.bashrc
 
 # expose ssh port, if need
 # EXPOSE 22
