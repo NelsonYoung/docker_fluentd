@@ -9,7 +9,7 @@ Step 1: Run the command below to build docker images.
 > docker build --tag="mops/fluentd:v2" --file=Dockerfile .
 
 Step 2: Startup the docker
-> docker run -t -i --name=test_fluent -d -P mops/fluentd:v2 "/bin/bash"
+> docker run -t -i --name=test_fluent --restart=always -d -P mops/fluentd:v2 "/bin/bash"
 
 Step 3: Attach the running container and check the fluentd state.
 > supervisorctl status
@@ -19,7 +19,7 @@ Step 1: Run the command below to build docker images.
 > docker build --tag="mops/fluentd:v2" --file=Dockerfile_without_supervisord .
 
 Step 2: Startup the docker
-> docker run -t -i --name=test_fluent -d -P mops/fluentd:v2 "/bin/bash"
+> docker run -t -i --name=test_fluent --restart=always -d -P mops/fluentd:v2 "/bin/bash"
 
 Step 3: Attach the running container and check the fluentd state.
 > ps aux | grep fluentd
