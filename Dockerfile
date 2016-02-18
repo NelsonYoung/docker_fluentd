@@ -12,7 +12,12 @@ LABEL License=GPLv2
 
 # For systemd usage this changes to /usr/sbin/init
 # Keeping it as /bin/bash for compatability with previous
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
+
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV HOME /root
 
 RUN ulimit -n 65536
 
@@ -39,7 +44,8 @@ RUN (mkdir /opt/mops/fluentd && cd /opt/mops/fluentd && fluentd --setup /opt/mop
 RUN (cd /opt/mops/tmp && wget https://pypi.python.org/packages/source/s/setuptools/setuptools-19.1.1.tar.gz#md5=792297b8918afa9faf826cb5ec4a447a)
 RUN (cd /opt/mops/tmp && tar zxvf setuptools-19.1.1.tar.gz && cd /opt/mops/tmp/setuptools-19.1.1 && python setup.py build && python setup.py install)
 RUN easy_install supervisor
-RUN echo_supervisord_conf > /etc/supervisord.conf
+#RUN echo_supervisord_conf > /etc/supervisord.conf
+ADD supervisord.conf /etc/supervisord.conf
 
 # Run fluentd
 RUN echo "[program:fluentd]" >> /etc/supervisord.conf
@@ -57,4 +63,23 @@ RUN echo "environment=PATH=\"/usr/bin\"" >> /etc/supervisord.conf
 RUN rm -rf /opt/mops/tmp
 
 # RUN supervisord -c /etc/supervisord.conf
-RUN echo "/usr/bin/supervisord -c /etc/supervisord.conf" >> /root/.bashrc
+#RUN echo "/usr/bin/supervisord -c /etc/supervisord.conf" >> /root/.bashrc
+#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+# CMD ["/bin/echo", "/etc/supervisord.conf"]
+#ENTRYPOINT ["/bin/echo"]
+#ENTRYPOINT ["/usr/bin/supervisord", "-c"]
+#ENTRYPOINT ["top", "-b"]
+#CMD ["-c"]
+#ENV PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+#RUN (echo "#!/bin/bash" >> /opt/run.sh && echo "nohup /usr/bin/supervisord -c /etc/supervisord.conf &" >> /opt/run.sh && echo "sleep 1" >> /opt/run.sh && chmod 777 /opt/run.sh)
+#COPY run.sh /opt/run.sh
+#ENTRYPOINT [“/opt/run.sh”]
+#RUN /bin/bash /opt/run.sh
+#CMD ["/bin/bash", "/opt/run.sh"]
+#CMD ["/usr/bin/which supervisord"]
+#CMD ["/etc/supervisord.conf"]
+#ENTRYPOINT ["/opt/run.sh"]
+#CMD /opt/run.sh console
+
+# default command
+CMD ["supervisord", "-c", "/etc/supervisor.conf"]
