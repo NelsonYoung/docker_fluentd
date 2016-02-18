@@ -49,41 +49,11 @@ RUN easy_install supervisor && \
 #RUN echo_supervisord_conf > /etc/supervisord.conf
 ADD supervisord.conf /etc/supervisord.conf
 
-# Run fluentd
+# fluentd supervisord configure
 ADD fluentd.sv.conf /etc/supervisor/conf.d/
-
-#RUN echo "[program:fluentd]" >> /etc/supervisord.conf
-#RUN echo "command=/opt/mops/ruby/bin/fluentd -c /opt/mops/fluentd/conf/fluent.conf  -vvv" >> /etc/supervisord.conf
-#RUN echo "autostart=true " >> /etc/supervisord.conf
-#RUN echo "autorestart=true" >> /etc/supervisord.conf
-#RUN echo "startsecs=3 " >> /etc/supervisord.conf
-#RUN echo "stderr_logfile=/tmp/fluentd_err.log" >> /etc/supervisord.conf
-#RUN echo "stdout_logfile=/tmp/fluentd.log" >> /etc/supervisord.conf
-#RUN echo "redirect_stderr=true" >> /etc/supervisord.conf
-#RUN echo "environment=PATH=\"/opt/mops/ruby/bin\"" >> /etc/supervisord.conf
-#RUN echo "environment=PATH=\"/usr/bin\"" >> /etc/supervisord.conf
 
 # Remove tmp files
 RUN rm -rf /opt/mops/tmp
-
-# RUN supervisord -c /etc/supervisord.conf
-#RUN echo "/usr/bin/supervisord -c /etc/supervisord.conf" >> /root/.bashrc
-#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-# CMD ["/bin/echo", "/etc/supervisord.conf"]
-#ENTRYPOINT ["/bin/echo"]
-#ENTRYPOINT ["/usr/bin/supervisord", "-c"]
-#ENTRYPOINT ["top", "-b"]
-#CMD ["-c"]
-#ENV PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-#RUN (echo "#!/bin/bash" >> /opt/run.sh && echo "nohup /usr/bin/supervisord -c /etc/supervisord.conf &" >> /opt/run.sh && echo "sleep 1" >> /opt/run.sh && chmod 777 /opt/run.sh)
-#COPY run.sh /opt/run.sh
-#ENTRYPOINT [“/opt/run.sh”]
-#RUN /bin/bash /opt/run.sh
-#CMD ["/bin/bash", "/opt/run.sh"]
-#CMD ["/usr/bin/which supervisord"]
-#CMD ["/etc/supervisord.conf"]
-#ENTRYPOINT ["/opt/run.sh"]
-#CMD /opt/run.sh console
 
 # default command
 CMD ["supervisord", "-c", "/etc/supervisord.conf"]
