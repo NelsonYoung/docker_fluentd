@@ -22,4 +22,7 @@ Step 2: Startup the docker
 > docker run -t -i --name=test_fluent --restart=always -d -P mops/fluentd:v2 "/bin/bash"
 
 Step 3: Attach the running container and check the fluentd state.
-> ps aux | grep fluentd
+> ps aux | grep fluentdQ
+
+## Notice
+Supervisord should run on no deamon status. otherwise container will exit when run it.
