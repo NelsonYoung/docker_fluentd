@@ -42,7 +42,7 @@ RUN ln -s /opt/mops/ruby/bin/* /usr/local/bin/ && \
 # Configure fluentd
 RUN mkdir /opt/mops/fluentd && \
     cd /opt/mops/fluentd && \
-    fluentd --setup /opt/mops/fluentd/conf)
+    fluentd --setup /opt/mops/fluentd/conf
 ADD fluent.conf /opt/mops/fluentd/conf/fluent.conf
 
 # Run fluentd
