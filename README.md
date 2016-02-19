@@ -25,4 +25,4 @@ Step 3: Attach the running container and check the fluentd state.
 > ps aux | grep fluentdQ
 
 ## Notice
-Supervisord should run on no deamon status. otherwise container will exit when run it.
+Supervisord should run on no deamon status. Otherwise container will exit when run it.
