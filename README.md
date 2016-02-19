@@ -9,7 +9,7 @@ Fluentd pos_file should also on physics, we set diretory is /var/log/tmp/.
 
 ###Usage:
 
-Download the Dockerfile and fluentd_docker.tar.xz.
+Download fluentd_docker.tar.xz and choose Dockerfile you need.
 
 #### Docker container with supervisord
 
