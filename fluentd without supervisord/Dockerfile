@@ -27,7 +27,7 @@ RUN yum install -y wget gcc make openssl-devel.x86_64 openssl.x86_64 openssh-ser
 RUN mkdir -p /opt/mops/tmp 
 # RUN cd /opt/mops/tmp &&  wget https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.gz
 RUN cd /opt/mops/tmp && \
-    wget http://172.17.0.36ruby-2.2.3.tar.gz && \
+    wget http://172.17.0.36/ruby-2.2.3.tar.gz && \
     tar zxf ruby-2.2.3.tar.gz && \
     cd ruby-2.2.3 && \
     ./configure --prefix=/opt/mops/ruby && \
