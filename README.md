@@ -2,8 +2,10 @@
 ###Scenario:
 
 Read apache logs and upload to aws s3.
+
 Apache httpd application run on physics machine and log path is /var/log/httpd/.
-Fluentd pos_file should also on physics, we set diretory is /var/log/tmp/
+
+Fluentd pos_file should also on physics, we set diretory is /var/log/tmp/.
 
 Usage:
 
