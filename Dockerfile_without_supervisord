@@ -37,4 +37,7 @@ RUN (mkdir /opt/mops/fluentd && cd /opt/mops/fluentd && fluentd --setup /opt/mop
 
 # Run fluentd
 RUN echo "fluentd -c /opt/mops/fluentd/conf/fluent.conf -d /opt/mops/fluentd/fluentd.pid -o /tmp/fluentd.log -p /opt/mops/fluentd/conf/plugin/" >> /root/.bashrc
+#ENTRYPOINT ['fluentd', '-c', '/opt/mops/fluentd/conf/fluent.conf', '-d', '/opt/mops/fluentd/fluentd.pid', '-o', '/tmp/fluentd.log', '-p', '/opt/mops/fluentd/conf/plugin/']
+#CMD ['fluentd', '-c', '/opt/mops/fluentd/conf/fluent.conf', '-d', '/opt/mops/fluentd/fluentd.pid', '-o', '/tmp/fluentd.log', '-p', '/opt/mops/fluentd/conf/plugin/', '-vvv']
+#ENTRYPOINT ['fluentd', '-c', '/opt/mops/fluentd/conf/fluent.conf', '-o', '/tmp/fluentd.log', '-p', '/opt/mops/fluentd/conf/plugin/', '-vvv']
 
