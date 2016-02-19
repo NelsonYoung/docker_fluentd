@@ -11,7 +11,7 @@ Fluentd pos_file should also on physics, we set diretory is /var/log/tmp/.
 
 Download the Dockerfile and fluentd_docker.tar.xz.
 
-### Docker container with supervisord
+#### Docker container with supervisord
 
 Step 1: Run the command below to build docker images.
 > docker build --tag="mops/fluentd:v2" --file=Dockerfile .
@@ -22,7 +22,7 @@ Step 2: Startup the docker
 Step 3: Attach the running container and check the fluentd state.
 > supervisorctl status
 
-### Docker container without supervisord
+#### Docker container without supervisord
 Step 1: Run the command below to build docker images.
 > docker build --tag="mops/fluentd:v3" --file=Dockerfile_without_supervisord .
 
